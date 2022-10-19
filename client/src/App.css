@@ -1,0 +1,15 @@
+.tableSortField svg {
+    transition: transform .2s ease;
+}
+
+.tableSortField.up svg {
+    transform: rotate(180deg);
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: white;
+}
