@@ -1,0 +1,10 @@
+{
+    "name": "welbex_test",
+    "engines": {
+        "node": "16.x"
+    },
+    "scripts": {
+        "start": "cd server && npm install && node index",
+        "heroku-postbuild": "cd client && npm install && npm run build"
+    }
+}

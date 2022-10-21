@@ -14,7 +14,6 @@ export const ProductsList = ({ products, handleClick, sort, sortDirection }) => 
     <table className="table table-hover text-center mb-5">
       <thead className="thead-dark">
         <tr>
-          <th>#</th>
           <th>Дата</th>
 
           {sortingFieldsData.map(field =>
@@ -29,7 +28,7 @@ export const ProductsList = ({ products, handleClick, sort, sortDirection }) => 
       </thead>
       <tbody>
 
-        {products.map((item, ind) => <ProductsItem product={item} key={item.id} index={ind + 1} />)}
+        {products.map((item, ind) => <ProductsItem product={item} key={item.id} />)}
 
       </tbody>
     </table>

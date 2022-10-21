@@ -1,10 +1,9 @@
 import React from "react";
 
-export const ProductsItem = ({ product, index }) => {
+export const ProductsItem = ({ product }) => {
 
     return (
         <tr>
-            <td>{index}</td>
             <td>{product.date}</td>
             <td>{product.title}</td>
             <td>{product.amount}</td>

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import "./App.css";
+import "./index.css";
 import { Header } from "./components/Header";
 import { Pagination } from "./components/Pagination";
 import { ProductsList } from "./components/ProductsList";
 
-const PORT = process.env.PORT | 5000
+const baseURL = process.env.NODE_ENV === 'production' ? 'https://pern-test-task.herokuapp.com/products' : 'http://localhost:5000/products'
 
 export const App = () => {
 
@@ -21,7 +21,7 @@ export const App = () => {
 
   const getData = async () => {
     try {
-      const response = await fetch(`http://localhost:${PORT}/products`);
+      const response = await fetch(baseURL);
       const jsonData = await response.json();
       jsonData.map(item => {
         return item.date = new Date(item.date).toLocaleDateString()
@@ -42,12 +42,11 @@ export const App = () => {
       switch (filterCondition) {
         case ('equals'): filteredData = filteredData.filter(item => item[filterField] === filterString)
           break
-        case ('contains'): filteredData = filteredData.filter(item => item[filterField].toString().includes(filterString))
-          break
         case ('more'): filteredData = filteredData.filter(item => item[filterField] > filterString)
           break
         case ('less'): filteredData = filteredData.filter(item => item[filterField] < filterString)
           break
+        default: filteredData = filteredData.filter(item => item[filterField].toString().includes(filterString))
       }
     }
     sortDirection === 'ascending'

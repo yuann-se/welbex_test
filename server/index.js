@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const app = express();
 const cors = require("cors");
@@ -6,10 +7,10 @@ const pool = require("./db");
 app.use(cors());
 app.use(express.json());
 
-const PORT = process.env.PORT | 5000
+const PORT = process.env.PORT || 5000
 
 app.get('/', (request, response) => {
-  response.json({ info: 'Node.js, Express, and Postgres API' })
+  response.json({ info: 'PERN stack test app' })
 })
 
 app.get("/products", async (req, res) => {
